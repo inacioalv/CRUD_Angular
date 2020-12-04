@@ -1,0 +1,21 @@
+.header{
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px;
+  background-color: #03719C;
+  border-bottom: solid 5px  #343837;
+}
+
+
+.header a{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 2em;
+  color: black;
+}
+
+.header .material-icons{
+  padding-left: 10px;
+  padding-right: 10px;
+}
