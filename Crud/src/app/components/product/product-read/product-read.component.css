@@ -1,12 +1,11 @@
 table{
     width:100%;
 }
-
 .edit{
-    color:rgb(44, 85, 219);
-    margin:10px;
+    color: #d9cd26;
+    margin-right: 10px;
 }
 
 .delete{
-    color:rgb(252, 5, 5);
+    color: #e35e6b;
 }

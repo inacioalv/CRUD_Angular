@@ -1,36 +1,26 @@
-<div class="card">
-    <mat-card  >
-        <mat-card-title>Deletar Produto</mat-card-title>
-        <form >
-            <mat-form-field appearance="fill">
-                    <mat-label>Nome</mat-label>
-    
-                    <input matInput  
-                                placeholder="Nome"
-                                [value]="product.name"
-                                name="name"
-                                disabled >
-    
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                    <mat-label>Preço(R$)</mat-label>
-    
-                    <input matInput  
-                                placeholder="Preço(R$)" 
-                                [value]="product.price"
-                                name="price"
-                                disabled>
-    
-            </mat-form-field>
-    
-        </form>
-        <button mat-raised-button color="warn" (click)=" deleteProduct()"  >
-            Deletar
-        </button>
-        
-        <button mat-raised-button color="accent" (click)=" cancel()"  >
-            Cancelar
-        </button>
-    </mat-card>
-    </div>
-    
+<mat-card *ngIf="product; else semRegistro">
+    <mat-card-title>Excluir Produto</mat-card-title>
+
+    <form >
+        <mat-form-field>
+            <input matInput placeholder="Nome"  
+                    [(value)]="product.name" name="name" disabled >
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Preço (R$)" 
+                        [(value)]="product.price" name="price"disabled >
+        </mat-form-field>
+    </form>
+
+    <button  mat-raised-button   (click)="deleteProduct()" color="warn" >
+        Deletar
+    </button>
+    <button  mat-raised-button   (click)="cancel()" color="primary" >
+        Cancelar
+    </button>
+
+</mat-card>
+
+<ng-template #semRegistro>
+    <h1 class="full-width main-div">Nenhum registro encontrado!</h1>
+  </ng-template>

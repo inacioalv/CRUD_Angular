@@ -1,33 +1,71 @@
-<div class="card">
-<mat-card  >
+<mat-card>
     <mat-card-title>Novo Produto</mat-card-title>
-    <form >
-        <mat-form-field appearance="fill">
-                <mat-label>Nome</mat-label>
 
-                <input matInput  
-                            placeholder="Nome"
-                            [(ngModel)]="product.name"
-                            name="name" >
+    <form  [formGroup]="formularioDeUsuario" >
+        <mat-form-field>
+            <input  matInput 
+                    placeholder="Nome"  
+                    [(ngModel)]="product.name" 
+                    type="text"
+                    name="name"
+                    formControlName="name" >
+        <mat-error *ngIf="validacao.hasErrorValidar(f.name,'required')">
+            Campo obrigatório
+        </mat-error>
+
+        <mat-error *ngIf="validacao.hasErrorValidar(f.name,'minLength')">
+            Campo deve ter no minimo 3 caracteres{{errorminLength}}
+        </mat-error>
+
+        <mat-error *ngIf="validacao.hasErrorValidar(f.name,'maxLength')">
+            Campo não pode passar 100 caracteres
+        </mat-error>
 
         </mat-form-field>
-        <mat-form-field appearance="fill">
-                <mat-label>Preço(R$)</mat-label>
 
-                <input matInput  
-                            placeholder="Preço(R$)" 
-                            [(ngModel)]="product.price"
-                            name="price">
+        <mat-form-field>
+            <input  matInput 
+                    placeholder="Preço (R$)" 
+                    [(ngModel)]="product.price" 
+                    name="price" 
+                    type="number"
+                    formControlName="price">
+
+        <mat-error *ngIf="validacao.hasErrorValidar(f.price,'required')">
+            Preço obrigatório !
+        </mat-error>
+        <mat-error *ngIf="validacao.hasErrorValidar(f.price,'min')">
+            Max 1000
+        </mat-error>
+        <mat-error *ngIf="validacao.hasErrorValidar(f.price,'max')">
+            Max 1000
+        </mat-error>
+
 
         </mat-form-field>
-
     </form>
-    <button mat-raised-button color="primary" (click)=" createProduct()"  >
+
+    <button mat-raised-button   
+            (click)="createProduct()" 
+            color="primary" 
+            [disabled]="!formularioDeUsuario.valid">
         Salvar
     </button>
-    
-    <button mat-raised-button color="accent" (click)=" cancel()"  >
+
+    <button  mat-raised-button   (click)="cancel()" color="primary" >
         Cancelar
     </button>
+
+    
+
 </mat-card>
-</div>
+
+
+
+
+
+
+
+
+<!-- <p [id]="atributoLegal" >product-create works!</p>
+<button (click)="fazerAlgo()" >Fazer Algo!</button> -->

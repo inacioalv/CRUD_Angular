@@ -1,21 +1,26 @@
 .header{
-  display: flex;
-  align-items: center;
-  margin-bottom: 100px;
-  background-color: #03719C;
-  border-bottom: solid 5px  #343837;
+    display: flex;
+    align-items: center;
+    background-color: rgba(248, 241, 241, 0.486);
 }
-
 
 .header a{
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-size: 2em;
-  color: black;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
 }
 
-.header .material-icons{
-  padding-left: 10px;
-  padding-right: 10px;
+.header .logo{
+    max-height: 32px;
+}
+
+.header .title-group{
+    padding-left:15px ;
+    color: black;
+}
+
+.header .title-group i{
+    padding-right:5px ;
+    
 }

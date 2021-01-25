@@ -1,0 +1,49 @@
+<mat-card class="float-left marging10 filtro-listagem">
+  <form autocomplete="off" novalidate [formGroup]="filtroList" >
+
+    <div class="float-left width50">
+      <input  matInput 
+      placeholder="Nome"  
+      type="text"
+      name="name"
+      formControlName="name" >
+    </div>
+    
+  </form>
+</mat-card>
+
+
+
+<div  class="home-content" 
+      infiniteScroll  
+      (scrolled)="onScroll()"
+      *ngIf="products.length; else semRegistro">
+
+  
+
+  <mat-card class="home-card" *ngFor="let products of products"  >
+
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title class="home-card" ><p class="quebrar-linhas" >{{products.name}}</p></mat-card-title>
+     
+    </mat-card-header>
+    <img mat-card-image 
+    src="https://yata.ostr.locaweb.com.br/b1da36362690140b82f2615336181d34f58abf5a5fadf78cb182f5aafb43242e" >
+    <mat-card-content>
+      <p class="quebrar-linha">
+        Lançamento Mundial
+      </p>
+      <mat-card-subtitle>R$:{{products.price}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-actions>
+      <button color="accent" mat-raised-button >
+        <a routerLink="/products/{{ products.id }}">ABRIR</a>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #semRegistro>
+  <h1 class="full-width main-div">Nenhum registro encontrado!</h1>
+</ng-template>

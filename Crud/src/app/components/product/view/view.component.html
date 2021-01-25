@@ -1,0 +1,23 @@
+<mat-list *ngIf="products; else semRegistro" >
+  <mat-list-item class="list" >Nome: {{products.name}}</mat-list-item>
+  <mat-list-item class="list" >Preço: {{products.price}}</mat-list-item>
+    <img mat-card-image 
+    src="https://yata.ostr.locaweb.com.br/b1da36362690140b82f2615336181d34f58abf5a5fadf78cb182f5aafb43242e" >
+  <mat-card>
+    <mat-card-actions>
+
+      <button  mat-raised-button    color="accent" >
+        <a routerLink="/products/update/{{ products.id }}">Editar</a>
+      </button>
+      <button  mat-raised-button   (click)="deleteProduct()" color="warn" >
+        <a routerLink="/products/delete/{{ products.id }}">Deletar</a>
+      </button>
+
+    </mat-card-actions>
+  </mat-card>
+
+  </mat-list>
+  
+  <ng-template #semRegistro>
+    <h1 class="full-width main-div">Nenhum registro encontrado!</h1>
+  </ng-template>

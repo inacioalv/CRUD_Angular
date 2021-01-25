@@ -1,34 +1,26 @@
-<div class="card">
-    <mat-card  >
-        <mat-card-title>Alterar Produto</mat-card-title>
-        <form >
-            <mat-form-field appearance="fill">
-                    <mat-label>Nome</mat-label>
-    
-                    <input matInput  
-                                placeholder="Nome"
-                                [(ngModel)]="product.name"
-                                name="name" >
-    
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                    <mat-label>Preço(R$)</mat-label>
-    
-                    <input matInput  
-                                placeholder="Preço(R$)" 
-                                [(ngModel)]="product.price"
-                                name="price">
-    
-            </mat-form-field>
-    
-        </form>
-        <button mat-raised-button color="primary" (click)=" updateProduct()"  >
-            Atualizar
-        </button>
-        
-        <button mat-raised-button color="accent" (click)=" cancel()"  >
-            Cancelar
-        </button>
-    </mat-card>
-    </div>
-    
+<mat-card *ngIf="product; else semRegistro">
+    <mat-card-title>Alterar  Produto</mat-card-title>
+
+    <form >
+        <mat-form-field>
+            <input matInput placeholder="Nome"  
+                        [(ngModel)]="product.name" name="name" >
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Preço (R$)" 
+                        [(ngModel)]="product.price" name="price" >
+        </mat-form-field>
+    </form>
+
+    <button  mat-raised-button   (click)="updateProduct()" color="warn" >
+        Update
+    </button>
+    <button  mat-raised-button   (click)="cancel()" color="primary" >
+        Cancelar
+    </button>
+
+</mat-card>
+
+<ng-template #semRegistro>
+    <h1 class="full-width main-div">Nenhum registro encontrado!</h1>
+  </ng-template>
